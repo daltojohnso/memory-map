@@ -7,6 +7,8 @@ var express = require('express'),
 
 var routes = require('./routes/index');
 
+var shortid = require('shortid');
+
 var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
@@ -52,5 +54,8 @@ app.use(function(err, req, res, next) {
   });
 });
 
+var userdb = require('./userdb');
+userdb['Dalton'] = shortid.generate();
+userdb['Gabriela'] = shortid.generate();
 
 module.exports = app;
