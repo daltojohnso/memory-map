@@ -6,9 +6,10 @@ import { Navbar, NavbarBrand, Nav, NavItem, CollapsibleNav } from 'react-bootstr
 import { bindActionCreators } from 'redux';
 import { connect }            from 'react-redux';
 import loginActions         from 'actions/login';
+import {deleteUser} from '../utils';
 
 const mapStateToProps = (state) => ({
-  user : state.login.user,
+  user : state.login.user.user,
   routerState : state.router
 });
 const mapDispatchToProps = (dispatch) => ({
@@ -17,6 +18,11 @@ const mapDispatchToProps = (dispatch) => ({
 export default class CoreLayout extends React.Component {
   static propTypes = {
     children : React.PropTypes.element
+  }
+
+  handleLogout(e) {
+    e.preventDefault();
+    this.props.actions.logout();
   }
 
   render () {
@@ -48,6 +54,8 @@ export default class CoreLayout extends React.Component {
             {user &&
                 <Nav pullRight>
                   <NavItem eventKey={3}>{user}</NavItem>
+                  <NavItem eventKey={4} onClick={::this.handleLogout}>Log Out</NavItem>
+
                 </Nav>
                 }
           </Navbar.Collapse>

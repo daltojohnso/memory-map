@@ -1,5 +1,5 @@
 import * as CONSTANTS from 'constants/login';
-import {setUser} from '../utils';
+import {setUser, getUser, deleteUser} from '../utils';
 
 export default {
   login: (payload) => {
@@ -9,9 +9,26 @@ export default {
           setUser(data);
           dispatch({payload: {id: data.id, user: data.user}, type: CONSTANTS.LOGIN_SUCCESS})
         } else {
-          dispatch({type: CONSTANTS.LOAD_FAILED});
+          dispatch({type: CONSTANTS.LOGIN_FAILED});
         }
       });
+      dispatch({type: CONSTANTS.LOGGING_IN});
+    }
+  },
+  logout: () => {
+    let user = getUser();
+    return (dispatch, getState) => {
+      $.post('/api/logout', {id: user.id}, function(result, success) {
+        if (result) {
+          deleteUser();
+          dispatch({type: CONSTANTS.LOGOUT_SUCCESS})
+        } else {
+          //...
+        }
+      });
+      dispatch({type: CONSTANTS.LOGGING_OUT});
     }
   }
-};
+}
+
+;

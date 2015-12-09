@@ -4,7 +4,9 @@ import { connect }            from 'react-redux';
 import loginActions         from 'actions/login';
 
 const mapStateToProps = (state) => ({
-    user: state.login.user,
+    user: state.login.user.user,
+    loggingIn: state.login.loggingIn,
+    loginFailed: state.login.loginFailed,
     routerState : state.router
 });
 const mapDispatchToProps = (dispatch) => ({
@@ -21,10 +23,19 @@ export class LoginView extends React.Component {
 
     render () {
         const user = this.props.user;
+        const loggingIn = this.props.loggingIn;
+        const loginFailed = this.props.loginFailed;
         let height = window.innerHeight - 70 + 'px';
         return (
             <div style={{height: '250px', marginTop:'100px'}} className='container'>
                 <h1>Login</h1>
+            {loggingIn &&
+                <h2>Logging In...!</h2>
+                }
+
+            {loginFailed &&
+                <h2>Login Failed :(</h2>
+                }
             {!user &&
                 <div>
                     <form className='login-form form-inline' onSubmit={this.handleSubmit}>

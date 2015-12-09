@@ -94,11 +94,25 @@ router.post('/api/login', function(req, res, next) {
   }
 });
 
+router.post('/api/logout', function(req, res, next) {
+  var id = req.body.id;
+  var iddb = require('../iddb.json');
+
+  if (iddb[id]) {
+    iddb[id] = false;
+  }
+
+  fs.writeFile('./iddb.json', JSON.stringify(iddb), function (err) {
+    if (err) res.send(false);
+    else res.send(true);
+  });
+});
+
 router.get('/', function(req, res, next) {
   res.redirect(path.resolve('../dist/index.html'));
 });
 
-router.get('/mapview', function(req, res, next) {
+router.get('*', function(req, res, next) {
   res.redirect(path.resolve('../dist/index.html'));
 });
 

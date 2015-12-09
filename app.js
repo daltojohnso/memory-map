@@ -54,13 +54,13 @@ app.use(function(err, req, res, next) {
   });
 });
 
-var userdb = require('./userdb');
-var fs = require('fs');
-userdb['Dalton'] = shortid.generate();
-userdb['Gabriela'] = shortid.generate();
-
-fs.writeFile('./userdb.json', JSON.stringify(userdb), function(err) {
-    console.log(err);
-});
+//var userdb = require('./userdb.json');
+//var fs = require('fs');
+//userdb['Dalton'] = shortid.generate();
+//userdb['Gabriela'] = shortid.generate();
+//
+//fs.writeFile('./userdb.json', JSON.stringify(userdb), function(err) {
+//    console.log(err);
+//});
 
 module.exports = app;

@@ -151,6 +151,15 @@ export function setUser(data) {
   return false;
 }
 
+export function deleteUser(data) {
+  if (isLocalStorageNameSupported()) {
+    window.localStorage.removeItem('id');
+    window.localStorage.removeItem('user');
+    return true;
+  }
+  return false;
+}
+
 function isLocalStorageNameSupported() {
   var testKey = 'test', storage = window.localStorage;
   try {
