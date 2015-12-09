@@ -113,7 +113,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('*', function(req, res, next) {
-  res.redirect(path.resolve('../dist/index.html'));
+  res.redirect('/');
 });
 
 

@@ -19,7 +19,7 @@ export default createReducer(initialState, {
       },
       loggedIn: true,
       loginFailed: false,
-      logginIn: false
+      loggingIn: false
     };
   },
   [CONSTANTS.LOGGING_IN]: (state, action) => {

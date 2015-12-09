@@ -9,7 +9,7 @@ import loginActions         from 'actions/login';
 import {deleteUser} from '../utils';
 
 const mapStateToProps = (state) => ({
-  user : state.login.user.user,
+  user : state.login.user,
   routerState : state.router
 });
 const mapDispatchToProps = (dispatch) => ({
@@ -27,7 +27,9 @@ export default class CoreLayout extends React.Component {
 
   render () {
     const location = window.location.pathname;
-    let user = this.props.user;
+    let user;
+    if (this.props.user)
+      user = this.props.user.user;
     return (
       <div className='page-container'>
         <Navbar inverse fixedTop>

@@ -43,11 +43,13 @@
     "react-redux": "^4.0.0",
     "react-router": "1.0.0",
     "react-router-bootstrap": "^0.19.3",
+    "react-spinner": "^0.2.3",
     "redux": "^3.0.0",
     "redux-simple-router": "^0.0.10",
     "redux-thunk": "^1.0.0",
     "serve-favicon": "^2.3.0",
     "shortid": "^2.2.4",
+    "spin": "0.0.1",
     "whatwg-fetch": "^0.10.1",
     "yargs": "^3.18.0"
   },

@@ -1,5 +1,8 @@
 import * as CONSTANTS from 'constants/login';
 import {setUser, getUser, deleteUser} from '../utils';
+import { createHistory } from 'history'
+
+let history = createHistory()
 
 export default {
   login: (payload) => {
@@ -22,8 +25,10 @@ export default {
         if (result) {
           deleteUser();
           dispatch({type: CONSTANTS.LOGOUT_SUCCESS})
+          history.go('/');
         } else {
           //...
+          history.go('/');
         }
       });
       dispatch({type: CONSTANTS.LOGGING_OUT});

@@ -4,7 +4,7 @@ import { connect }            from 'react-redux';
 import loginActions         from 'actions/login';
 
 const mapStateToProps = (state) => ({
-    user: state.login.user.user,
+    user: state.login.user,
     loggingIn: state.login.loggingIn,
     loginFailed: state.login.loginFailed,
     routerState : state.router
@@ -22,7 +22,11 @@ export class LoginView extends React.Component {
     }
 
     render () {
-        const user = this.props.user;
+        let user;
+        if (this.props.user)
+            user = this.props.user.user;
+
+
         const loggingIn = this.props.loggingIn;
         const loginFailed = this.props.loginFailed;
         let height = window.innerHeight - 70 + 'px';
@@ -49,9 +53,9 @@ export class LoginView extends React.Component {
                     </form>
                 </div>
                 } {user &&
-                <div>
-                    <p>You're logged in as {user}.</p>
-                </div>    }
+                <h3>
+                    You're logged in as {user}.
+                </h3>    }
             </div>
         );
     }
