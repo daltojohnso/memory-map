@@ -73,6 +73,11 @@ router.post('/api/map', function(req, res, next) {
 
 });
 
+router.get('/api/message', function(req, res, next) {
+  var message = require('../message.json').message;
+  res.send(message);
+});
+
 
 router.post('/api/login', function(req, res, next) {
   console.log(req.body);
