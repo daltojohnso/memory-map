@@ -126,11 +126,6 @@ export class Map extends React.Component {
   }
 
   _updateNote(index, id, e) {
-    if (e.nativeEvent.explicitOriginalTarget &&
-        e.nativeEvent.explicitOriginalTarget == e.nativeEvent.originalTarget) {
-      return;
-    }
-
     index = +index;
     this.props.actions.update({content: this.refs[`${index}_input`].value, id, index});
   }
