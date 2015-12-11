@@ -19,12 +19,12 @@ export default class Root extends React.Component {
   }
 
   renderDevTools () {
-    if (!this.props.debug) {
-      return null;
-    }
-
-    return this.props.debugExternal ?
-      createDevToolsWindow(this.props.store) : <DevTools />;
+    //if (!this.props.debug) {
+    //  return null;
+    //}
+    //
+    //return this.props.debugExternal ?
+    //  createDevToolsWindow(this.props.store) : <DevTools />;
   }
 
   render () {

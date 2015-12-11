@@ -1,5 +1,10 @@
 // Settings go here
 
+body {
+  background-image: url(http://localhost:8080/harbor.jpg);
+  background-size: cover;
+}
+
 textarea {
   border: none;
   overflow: auto;
@@ -27,7 +32,11 @@ textarea {
 
 .gab-message {
   margin: 100px;
+  margin-left: 150px;
+  margin-right: 150px;
   font-size: 24px;
+  background: rgb(255, 255, 255);
+  background: rgba(255,255,255,.5);
 }
 
 .gab-message p {
@@ -35,7 +44,7 @@ textarea {
   padding-right: 50px;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 900px) {
   .gab-message {
     margin: 50px;
     margin-top: 75px;
@@ -48,10 +57,13 @@ textarea {
 }
 
 @media (max-width: 620px) {
+
   .gab-message {
     margin: 5px;
     margin-top: 60px;
     font-size: 18px;
+    background: rgb(255,255,255);
+    background: rgba(255,255,255,.6);
   }
 
   .gab-message p {

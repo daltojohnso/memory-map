@@ -7,6 +7,8 @@ var express = require('express'),
 
   var parsedDb = JSON.parse(fs.readFileSync(dbFileName, 'utf8'));
 
+  var indexHtml = fs.readFileSync('./dist/index.html', 'utf-8');
+
 router.get('/api/map', function(req, res, next) {
   var user = req.query.user;
   if (!user || !user.id){
@@ -110,6 +112,13 @@ router.post('/api/logout', function(req, res, next) {
 
 router.get('/', function(req, res, next) {
   res.redirect(path.resolve('../dist/index.html'));
+});
+
+router.get('/mapview', function(req,res,next) {
+  res.send(indexHtml);
+});
+router.get('/login', function(req,res,next) {
+  res.send(indexHtml);
 });
 
 router.get('*', function(req, res, next) {
